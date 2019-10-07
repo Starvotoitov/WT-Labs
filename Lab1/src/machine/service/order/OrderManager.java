@@ -13,7 +13,7 @@ public class OrderManager {
 
     public OrderManager() {
         orderFileManager = new DataAccessManager<ArrayList<Order>>();
-        load("");
+   //     load("");
     }
 
     public void addNewOrder(Order newOrder) {

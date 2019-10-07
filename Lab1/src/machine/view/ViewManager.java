@@ -120,4 +120,8 @@ public class ViewManager {
         System.out.println("ERROR");
         System.out.println(message);
     }
+
+    public void showMessage(String message) {
+        System.out.print(message + ": ");
+    }
 }

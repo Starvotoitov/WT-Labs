@@ -12,7 +12,6 @@ public class ControlManager {
     private ViewManager viewManager;
     private Scanner in;
 
-
     public ControlManager() {
         dataManager = new DataManager();
         viewManager = new ViewManager();
@@ -84,7 +83,9 @@ public class ControlManager {
             viewManager.showOrder(dataManager.getCoffeeInfo(order.getCoffee()), order);
             viewManager.showChoose("Изменить настройки?");
             if (scanNumber(1, 2) == 1) {
+                viewManager.showMessage("Номер настройки для изменения");
                 int fieldIndex = scanNumber(1, dataManager.getCoffeeInfo(order.getCoffee()).size());
+                viewManager.showMessage("Новое значение");
                 int newVal = scanNumber(1, -1);
                 try {
                     dataManager.updateOrder(order, fieldIndex, newVal);
@@ -106,12 +107,14 @@ public class ControlManager {
 
     private void changeOrderMenu() {
         showOrderList();
+        viewManager.showMessage("Номер заказ для изменения");
         int orderIndex = scanNumber(1, dataManager.getOrdersCount());
         updateOrder(dataManager.getOrders()[orderIndex - 1]);
     }
 
     private void deleteOrder() {
         showOrderList();
+        viewManager.showMessage("Номер заказа для удаления");
         int deleteIndex = scanNumber(1, dataManager.getOrdersCount());
         dataManager.deleteOrder(deleteIndex - 1);
     }
@@ -140,6 +143,7 @@ public class ControlManager {
     }
 
     private void addProfile() {
+        viewManager.showMessage("Имя профиля");
         String name = in.nextLine();
         dataManager.createProfile(name);
     }
@@ -147,6 +151,7 @@ public class ControlManager {
     private void deleteProfile() {
         viewManager.showProfileList(dataManager.getProfiles());
         if (dataManager.getProfileCount() > 0) {
+            viewManager.showMessage("Номер профиля для удаления");
             int profileIndex = scanNumber(1, dataManager.getProfileCount());
             dataManager.deleteProfile(profileIndex - 1);
         }
@@ -155,6 +160,7 @@ public class ControlManager {
     private void chooseProfile() {
         viewManager.showProfileList(dataManager.getProfiles());
         if (dataManager.getProfileCount() > 0) {
+            viewManager.showMessage("Номер профиля");
             int profileIndex = scanNumber(1, dataManager.getProfileCount());
             dataManager.chooseProfile(profileIndex - 1);
         }
@@ -162,6 +168,7 @@ public class ControlManager {
 
     private void sortOrders() {
         viewManager.showOrderSorts(dataManager.getOrderComparators());
+        viewManager.showMessage("Номер сортировки");
         int comparatorIndex = scanNumber(1, dataManager.getOrderComparators().length);
         viewManager.showChoose("Выполнить обратную сортировку?");
         boolean isReversed = scanNumber(1, 2) == 1;
@@ -170,6 +177,7 @@ public class ControlManager {
 
     private void sortProfiles() {
         viewManager.showProfileSorts(dataManager.getProfileComparators());
+        viewManager.showMessage("Номер сортировки");
         int comparatorIndex = scanNumber(1, dataManager.getProfileComparators().length);
         viewManager.showChoose("Выполнить обратную сортировку?");
         boolean isReversed = scanNumber(1, 2) == 1;

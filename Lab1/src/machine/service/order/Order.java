@@ -2,6 +2,8 @@ package machine.service.order;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
+
 import machine.service.coffee.Espresso;
 
 public class Order implements Serializable {
@@ -59,5 +61,10 @@ public class Order implements Serializable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(coffee, date, orderID);
     }
 }

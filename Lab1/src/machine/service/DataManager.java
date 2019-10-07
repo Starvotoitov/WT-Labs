@@ -31,7 +31,9 @@ public class DataManager {
 
     public DataManager() {
         orderManager = new OrderManager();
+        orderManager.load(ORDER_FILE_PATH);
         profileList = new ProfileList();
+        profileList.load(PROFILE_FILE_PATH);
         creatorsList = new ArrayList<Creator>();
         orderComparatorsList = new ArrayList<Comparator<Order>>();
         profileComparatorsList = new ArrayList<Comparator<Profile>>();

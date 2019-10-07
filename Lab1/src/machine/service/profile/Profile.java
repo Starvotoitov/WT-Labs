@@ -4,6 +4,7 @@ import machine.service.coffee.Espresso;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class Profile implements Serializable {
     private String profileName;
@@ -58,5 +59,35 @@ public class Profile implements Serializable {
 
     public String getProfileName() {
         return profileName;
+    }
+
+    public ArrayList<Espresso> getBasicCoffeeSettings() {
+        return basicCoffeeSettings;
+    }
+
+    public void setBasicCoffeeSettings(ArrayList<Espresso> newSet) {
+        basicCoffeeSettings = newSet;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (null == o) {
+            return false;
+        }
+        if (this == o) {
+            return true;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+        Profile profile = (Profile) o;
+        return profileName.equals(profile.profileName) &&
+                creationDate.equals(profile.creationDate) &&
+                basicCoffeeSettings.equals(profile.basicCoffeeSettings);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(profileName, creationDate, basicCoffeeSettings);
     }
 }

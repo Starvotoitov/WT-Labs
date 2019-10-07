@@ -12,6 +12,7 @@ public class DataAccessManager<T> {
         }
         XMLEncoder out = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(path)));
         out.writeObject(dataToSave);
+        out.flush();
         out.close();
     }
 

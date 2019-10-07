@@ -17,7 +17,7 @@ public class ProfileList {
     //    profileList = new ArrayList<Profile>();
         currentProfileIndex = -1;
         profileFileManager = new DataAccessManager<ArrayList<Profile>>();
-        load("");
+    //    load("");
     }
 
     public void addProfile(Profile newProfile) {
