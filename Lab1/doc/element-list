@@ -1,0 +1,13 @@
+by.bsuir.machine
+by.bsuir.machine.annotation
+by.bsuir.machine.controller
+by.bsuir.machine.controller.command
+by.bsuir.machine.dao
+by.bsuir.machine.service
+by.bsuir.machine.service.coffee
+by.bsuir.machine.service.comparator.order
+by.bsuir.machine.service.comparator.profile
+by.bsuir.machine.service.creator
+by.bsuir.machine.service.order
+by.bsuir.machine.service.profile
+by.bsuir.machine.view
