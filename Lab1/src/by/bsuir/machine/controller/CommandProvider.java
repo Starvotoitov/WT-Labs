@@ -42,6 +42,9 @@ public class CommandProvider {
             String commandName = args[0].toLowerCase();
             if (commandName.compareTo("") != 0) {
                 command = repository.get(commandName);
+                if (command == null) {
+                    command = repository.get("wrong_request");
+                }
             } else {
                 command = repository.get("wrong_request");
             }

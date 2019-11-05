@@ -8,7 +8,7 @@ public class WrongRequestCommand implements Command {
     public boolean execute(String[] args) {
         ViewFactory viewFactory = ViewFactory.getInstance();
         ViewManager viewManager = viewFactory.getViewManager();
-        viewManager.showErrorMessage("Неверные параметры");
+        viewManager.showErrorMessage("Неправильная команда");
         return true;
     }
 }
