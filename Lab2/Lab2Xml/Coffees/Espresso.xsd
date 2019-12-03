@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="../Elements/TemperatureElement.xsd"/>
+    <xsd:include schemaLocation="../Elements/CoffeeAmountElement.xsd"/>
+    <xsd:include schemaLocation="../Elements/WaterVolumeElement.xsd"/>
+
+    <xsd:complexType name="Espresso">
+        <xsd:sequence>
+            <xsd:element name="temperature" type="TemperatureElement"/>
+            <xsd:element name="coffeeAmount" type="CoffeeAmountElement"/>
+            <xsd:element name="waterVolume" type="WaterVolumeElement"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

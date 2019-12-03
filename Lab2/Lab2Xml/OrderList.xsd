@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="Coffees/Espresso.xsd"/>
+    <xsd:include schemaLocation="Coffees/Americano.xsd"/>
+    <xsd:include schemaLocation="Coffees/CoffeeWithMilk.xsd"/>
+    <xsd:include schemaLocation="Coffees/Cappuccino.xsd"/>
+    <xsd:include schemaLocation="Coffees/LatteMacchiato.xsd"/>
+    <xsd:include schemaLocation="Date/Date.xsd"/>
+
+    <xsd:complexType name="Order">
+        <xsd:sequence>
+            <xsd:element name="date" type="DateElement"/>
+            <xsd:choice>
+                <xsd:element name="espresso" type="Espresso"/>
+                <xsd:element name="americano" type="Americano"/>
+                <xsd:element name="coffeeWithMilk" type="CoffeeWithMilk"/>
+                <xsd:element name="cappuccino" type="Cappuccino"/>
+                <xsd:element name="latteMacchiato" type="LatteMacchiato"/>
+            </xsd:choice>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="List">
+        <xsd:sequence>
+            <xsd:element name="order" type="Order" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="orderList" type="List"/>
+
+</xsd:schema>

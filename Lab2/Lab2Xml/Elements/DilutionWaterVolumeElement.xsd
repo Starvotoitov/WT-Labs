@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:simpleType name="DilutionWaterVolume">
+        <xsd:restriction base="xsd:int">
+            <xsd:minInclusive value="200"/>
+            <xsd:maxInclusive value="350"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="DilutionWaterVolumeElement">
+        <xsd:attribute name="value" type="DilutionWaterVolume" use="required"/>
+    </xsd:complexType>
+</xsd:schema>

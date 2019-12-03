@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:simpleType name="Temperature">
+        <xsd:restriction base="xsd:int">
+            <xsd:minExclusive value="60"/>
+            <xsd:maxInclusive value="130"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="TemperatureElement">
+        <xsd:attribute name="value" type="Temperature" use="required"/>
+    </xsd:complexType>
+</xsd:schema>

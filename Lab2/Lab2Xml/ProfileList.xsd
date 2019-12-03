@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="Coffees/Espresso.xsd"/>
+    <xsd:include schemaLocation="Coffees/Americano.xsd"/>
+    <xsd:include schemaLocation="Coffees/CoffeeWithMilk.xsd"/>
+    <xsd:include schemaLocation="Coffees/Cappuccino.xsd"/>
+    <xsd:include schemaLocation="Coffees/LatteMacchiato.xsd"/>
+    <xsd:include schemaLocation="Date/Date.xsd"/>
+    <xsd:include schemaLocation="Name/NameElement.xsd"/>
+
+    <xsd:complexType name="BasicSettings">
+        <xsd:all>
+            <xsd:element name="espresso" type="Espresso" minOccurs="0"/>
+            <xsd:element name="americano" type="Americano" minOccurs="0"/>
+            <xsd:element name="coffeeWithMilk" type="CoffeeWithMilk" minOccurs="0"/>
+            <xsd:element name="cappuccino" type="Cappuccino" minOccurs="0"/>
+            <xsd:element name="latteMacchiato" type="LatteMacchiato" minOccurs="0"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="Profile">
+        <xsd:sequence>
+            <xsd:element name="profileName" type="NameElement"/>
+            <xsd:element name="creationDate" type="DateElement"/>
+            <xsd:element name="basicCoffeeSettings" type="BasicSettings"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="ProfileList">
+        <xsd:sequence>
+            <xsd:element name="profile" type="Profile" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="profileList" type="ProfileList"/>
+</xsd:schema>
